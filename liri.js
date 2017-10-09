@@ -29,7 +29,7 @@ function tweetRecall(){
 	  }
 	});
 };
-
+function spotifyRecall(){
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify({
   id: "381cb14110d54d0f928c1b9e098443af",
@@ -40,9 +40,53 @@ spotify.search({ type: "track", query: 'The Sign Ace of Base', limit: 1 }, funct
   if (err) {
     return console.log('Error occurred: ' + err);
   }
- 	console.log(JSON.stringify(data, undefined, 2));
+// 	console.log(JSON.stringify(data, undefined, 2));
  	console.log("Artist: "+JSON.stringify(data.tracks.items[0].artists[0].name));
- 	console.log("Song's Name: "+)
+ 	console.log("Song's Name: "+ JSON.stringify(data.tracks.items[0].name));
+ 	console.log("Preview on: "+ data.tracks.items[0].external_urls.spotify);
+});
+};
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<script type="text/javascript">
+
+
+var queryURL = "http://www.omdbapi.com/?t=" + "Mr. Nobody" + "&y=&plot=short&apikey=40e9cece";
+
+        // Write code between the dashes below to hit the queryURL with $ajax, then take the response data
+        // and display it in the div with an id of movie-view
+
+        //------YOUR CODE GOES IN THESE DASHES. DO NOT MANUALLY EDIT THE HTML ABOVE.
+
+$.ajax({
+	url: queryURL,
+    method: "GET"
+}).done(function(response) {
+    console.log(JSON.stringify(response));
+//  $("#movie-view").text(JSON.stringify(response));
 });
 
-//tweetRecall();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// tweetRecall();
+// spotifyRecall();
+
